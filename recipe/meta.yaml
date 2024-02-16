@@ -1,5 +1,5 @@
 {% set name = "toolong" %}
-{% set version = "1.1.1" %}
+{% set version = "1.1.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/toolong-{{ version }}.tar.gz
-  sha256: 5182f739304682647af143754927b09c33ddd96831a9cff39ee72305bf83e52a
+  sha256: b654205b5077f019fe3c31d2fbfc11c71f1fd8c712cd2a24165486e74409fc8e
 
 build:
   noarch: python
