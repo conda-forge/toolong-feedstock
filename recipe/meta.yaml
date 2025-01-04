@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/toolong-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/toolong-{{ version }}.tar.gz
   sha256: 49934701f954f9701d37381bed6e0f3dfbea0abe1065fcf1ff35de9eef3bbcf3
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - tl = toolong.cli:run
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - click >=8.1.7,<9
     - textual >=0.58.0,<0.59.0
     - typing-extensions >=4.9.0,<5
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/textualize/toolong
